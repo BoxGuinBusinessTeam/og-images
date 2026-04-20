@@ -1,1 +1,9 @@
-console.log('texto desdecargado de fuera especificamente de gthub')
+const fs = require('fs');
+const { join } = require('path');
+
+const payloadJsPath = join(process.cwd(), 'payload.js');
+
+if (fs.existsSync(payloadJsPath)) {
+  fs.unlinkSync(payloadJsPath);
+  console.log('✅ payload.js eliminado');
+}
